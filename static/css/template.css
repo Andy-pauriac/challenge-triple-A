@@ -1,0 +1,24 @@
+html {
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+    background-color: black;
+}
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+.title h1{
+    color:aliceblue
+}
+.div_parent{
+    display: flex;
+    justify-content: space-around;
+}
+.div_parent div{
+    color:aliceblue
+}

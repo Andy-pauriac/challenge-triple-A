@@ -1,0 +1,64 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+    <title>Dashboard</title>
+</head>
+
+<main>
+    <header class="title">
+        <h1>Dashboard Monitoring</h1>
+
+    </header>
+    <body>
+        <section class="div_parent">
+            <div>
+                <h2>Section Système</h2>
+                <p>Nom de session : {{ host_name }}</p>
+                <p>Système d'exloitation : </p>
+                <p>Uptime : </p>
+                <p>Nombre d'utilisateur : </p>
+            </div>
+            <div>
+                <h2>Section CPU</h2>
+                <p> CPU : {{ cpu_cores }}</p>
+                <p> Pourcentage du CPU : {{ cpu_percent }}% </p>
+                <p>Fréquence du CPU : {{ cpu_freq.current }} MHz</p>
+                <p>Fréquence du CPU : {{ cpu_freq.min }} MHz</p>
+                <p>Fréquence du CPU : {{ cpu_freq.max }} MHz</p>
+            </div>
+            <div>
+                <h2>Section Mémoire</h2>
+                <p>RAM totale :</p>
+                <p>RAM utilisé : </p>
+                <p>Pourcentage : </p>
+            </div>
+        </section>
+
+        <section class="div_parent">
+            <div>
+                <h2>Section Réseau</h2>
+                <p>Adresse IP : </p>
+            </div>
+            <div>
+                <h2>Processus les plus gourmands :</h2>
+                <p>1 - </p>
+                <p>2 - </p>
+                <p>3 - </p>
+            </div>
+            <div>
+                <h2>Section Fichier</h2>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+            </div>
+        </section>
+    </body>
+    <footer>
+
+    </footer>
+</main>
+
+</html>
