@@ -1,3 +1,9 @@
+:root{
+    --primary_color: black;
+    --secondary_color: white;
+
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -5,7 +11,7 @@ html {
 }
 
 body{
-    background-color: black;
+    background-color: var(--primary_color);
 }
 .title{
     display: flex;
@@ -13,12 +19,12 @@ body{
 }
 
 .title h1{
-    color:aliceblue
+    color:var(--secondary_color)
 }
 .div_parent{
     display: flex;
     justify-content: space-around;
 }
 .div_parent div{
-    color:aliceblue
+    color:var(--secondary_color)
 }
