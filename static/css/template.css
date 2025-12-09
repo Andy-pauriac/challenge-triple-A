@@ -1,30 +1,55 @@
 :root{
-    --primary_color: black;
-    --secondary_color: white;
+    --primary_color: #000000;
+    --secondary_color: #252222;
+    --third_color: #000000;
+    --text_color: white;
+}
 
+body{
+    margin: 0;
+    background-color: var(--primary_color);
 }
 
 html {
     margin: 0;
     padding: 0;
-
 }
 
-body{
-    background-color: var(--primary_color);
-}
 .title{
     display: flex;
     justify-content: center;
+    color:var(--text_color);
+    background-color:var(--secondary_color)
 }
 
-.title h1{
-    color:var(--secondary_color)
-}
 .div_parent{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    color:var(--text_color)
 }
-.div_parent div{
-    color:var(--secondary_color)
+
+.section_title{
+    display:flex;
+    justify-content: center;
+    color:var(--text_color)
+}
+
+.dashboard_div_parent{
+    margin: 2%;
+    width: 30%;
+    padding: 1%;
+    background-color: var(--secondary_color);
+}
+
+.dashboard_div{
+    background-color: var(--third_color);
+    padding: 1%;
+    border: solid white 1px;
+    height: -webkit-fill-available;
+}
+
+.div_parent_scd_part{
+    display: flex;
+    justify-content: center;
+    color:var(--text_color)
 }

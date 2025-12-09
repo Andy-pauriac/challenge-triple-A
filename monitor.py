@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template
 import psutil, socket, time, platform, os
 
 app = Flask(__name__)
@@ -27,34 +27,26 @@ def index():
 
     # SECTION RESEAU
     ip = psutil.net_connections(kind='inet')
+    ipv4 = ipv6 = status = None
     for i in ip:
         ipv4 = i.laddr
         ipv6 = i.raddr
         status = i.status
 
-     # SECTION ANALYSE DES FICHIERS (TOUT LE DISQUE C:)
-    root_directory = r"C:\\"  
+    # SECTION FICHIERS
+    root_directory = r"C:\Users"   # dossier de départ
     extensions = [".txt", ".py", ".pdf", ".jpg"]
     counts = {ext: 0 for ext in extensions}
 
+    # Parcours de tous les sous-dossiers
     for current_dir, subdirs, files in os.walk(root_directory):
-        for filename in files:
+        for filename in files:               # filename est une chaîne
+            lower_name = filename.lower()
             for ext in extensions:
-                if filename.lower().endswith(ext):
+                if lower_name.endswith(ext):
                     counts[ext] += 1
 
     total_files = sum(counts.values())
-
-    lines = [f"Dossier analysé : {root_directory} (tous les sous-dossiers)"]
-    for ext in extensions:
-        count = counts[ext]
-        
-        percentage = (count / total_files) * 100 if total_files > 0 else  0
-        
-    lines.append(f"{ext} : {count} fichiers, soit {percentage:.1f}%")
-    
-    files_stats = "\n".join(lines)
-
 
     return render_template(
         "template.html",
@@ -73,6 +65,10 @@ def index():
         ram_used=ram_used,
         ram_total=ram_total,
         ram_percent=ram_percent,
-        files_stats=files_stats,  
+        root_directory=root_directory,
+        total_files=total_files,
+        counts=counts,
     )
-    
+
+if __name__ == "__main__":
+    app.run(debug=True)
