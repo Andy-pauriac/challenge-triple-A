@@ -37,7 +37,7 @@ html {
 }
 
 .dashboard_div_parent{
-    margin: 0 10%;
+    margin: 0 8%;
     padding: 1%;
     background-color: var(--secondary_color);
 }
@@ -45,8 +45,10 @@ html {
 .dashboard_div{
     background-color: var(--third_color);
     padding: 1%;
-    border: solid white 1px 
+    border: solid white 1px;
+    height: -webkit-fill-available;
 }
+
 .div_parent_scd_part{
     display: flex;
     justify-content: center;
