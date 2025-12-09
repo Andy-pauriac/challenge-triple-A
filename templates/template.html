@@ -1,9 +1,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="2" >
+    <!-- <meta http-equiv="refresh" content="2" > -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+    <link rel="stylesheet" href="../static/css/template.css">
     <title>Dashboard</title>
 </head>
 
@@ -12,50 +12,81 @@
         <h1>Dashboard Monitoring</h1>
 
     </header>
+
     <body>
+        <div class="section_title">
+            <h2>Section Système et Réseau</h2>
+        </div>
         <section class="div_parent">
-            <div class="dashboard_section">
-                <h2>Section Système</h2>
-                <p>Nom de session : {{ host_name }}</p>
-                <p>Système d'exloitation : {{ os }} {{ os_release }}</p>
-                <p>Uptime : {{ uptime }}</p>
-                <p>Nombre d'utilisateur : {{ user_number }} </p>
+            <div class="dashboard_div_parent">
+                <div class="dashboard_div">
+                    <h3>Système</h3>
+                    <p>Nom de session : {{ host_name }}</p>
+                    <p>Système d'exloitation : {{ os }} {{ os_release }}</p>
+                    <p>Uptime : {{ uptime }}</p>
+                    <p>Nombre d'utilisateur : {{ user_number }} </p>
+                </div>
             </div>
-            <div class="dashboard_section">
-                <h2>Section CPU</h2>
-                <p> CPU : {{ cpu_cores }}</p>
-                <p> Pourcentage du CPU : {{ cpu_percent }}% </p>
-                <p>Fréquence du CPU : {{ cpu_freq.current }} MHz</p>
-                <p>Fréquence du CPU : {{ cpu_freq.min }} MHz</p>
-                <p>Fréquence du CPU : {{ cpu_freq.max }} MHz</p>
-            </div>
-            <div class="dashboard_section">
-                <h2>Section Mémoire</h2>
-                <p>RAM totale : {{ ram_total }} Go</p>
-                <p>RAM utilisé : {{ ram_used }} Go</p>
-                <p>RAM disponible : {{ ram_available }} Go</p>
-                <p>Pourcentage : {{ ram_percent }}% </p>
+            <div class="dashboard_div_parent">
+                <div class="dashboard_div">
+                    <h3>Réseau</h3>
+                    <p>Adresse IPV4 : {{ ipv4.ip }} </p>
+                    <p>Adresse IPV6 : {{ ipv6.ip }} </p>
+                    <p>Statut : {{ status }} </p>
+                </div>
             </div>
         </section>
 
+        <div class="section_title">
+            <h2>Section CPU et RAM</h2>
+        </div>
         <section class="div_parent">
-            <div class="dashboard_section">
-                <h2>Section Réseau</h2>
-                <p>Adresse IPV4 : {{ ipv4.ip }} </p>
-                <p>Adresse IPV6 : {{ ipv6.ip }} </p>
-                <p>Statut : {{ status }} </p>
+            <div class="dashboard_div_parent">
+                <div class="dashboard_div">
+                    <h3>CPU</h3>
+                    <p> CPU : {{ cpu_cores }}</p>
+                    <p> Pourcentage du CPU : {{ cpu_percent }}% </p>
+                    <p>Fréquence du CPU : {{ cpu_freq.current }} MHz</p>
+                    <p>Fréquence du CPU : {{ cpu_freq.min }} MHz</p>
+                    <p>Fréquence du CPU : {{ cpu_freq.max }} MHz</p>
+                </div>
             </div>
-            <div class="dashboard_section">
-                <h2>Processus les plus gourmands :</h2>
-                <p>1 - </p>
-                <p>2 - </p>
-                <p>3 - </p>
+            <div class="dashboard_div_parent">
+                <div class="dashboard_div">
+                    <h3>Mémoire</h3>
+                    <p>RAM totale : {{ ram_total }} Go</p>
+                    <p>RAM utilisé : {{ ram_used }} Go</p>
+                    <p>RAM disponible : {{ ram_available }} Go</p>
+                    <p>Pourcentage : {{ ram_percent }}% </p>
+                </div>
             </div>
-            <div class="dashboard_section">
-                <h2>Section Fichier</h2>
-                <p>test</p>
-                <p>test</p>
-                <p>test</p>
+        </section>
+        
+        <div class="section_title">
+            <h2>Section fichier </h2>
+        </div>
+        <section class="div_parent_scd_part">
+            <div class="dashboard_div_parent">
+                <div class="dashboard_div">
+                    <h3>Analyse des Fichiers</h3>
+                    <p>test</p>
+                    <p>test</p>
+                    <p>test</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section_title">
+            <h2>Section Processus</h2>
+        </div>
+        <section class="div_parent_scd_part">
+            <div class="dashboard_div_parent">
+                <div class="dashboard_div">
+                    <h3>Processus les plus gourmands  </h3>
+                    <p>1 - </p>
+                    <p>2 - </p>
+                    <p>3 - </p>
+                </div>
             </div>
         </section>
     </body>

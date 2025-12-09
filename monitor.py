@@ -1,11 +1,11 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template
 import psutil, socket, time, platform
 
 # Configuration de l'application
 app = Flask(__name__)
 
 # Route pour afficher les différentes pages
-@app.route("/", methods=["GET"])
+@app.route("/")
 def index():
 
     # SECTION SYSTEME
