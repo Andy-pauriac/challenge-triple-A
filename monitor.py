@@ -38,6 +38,9 @@ def index():
         status = i.status
 
     # SECTION PROCESSUS
+    process = psutil.process()
+    process_cpu = psutil.cpu_percent(interval=0.1)
+    process_ram = psutil.Process().memory_info().rss /(1024 ** 2 )
     
 
     # SECTION FICHIER
@@ -56,6 +59,9 @@ def index():
                            ram_available = ram_available,
                            ram_used = ram_used,
                            ram_total = ram_total,
-                           ram_percent = ram_percent,)
+                           ram_percent = ram_percent,
+                           process_cpu = process_cpu,
+                           process_ram = process_ram,
+                           process = process,)
 
 
