@@ -3,17 +3,16 @@
     --secondary_color: #252222;
     --third_color: #000000;
     --text_color: white;
-
 }
 
 body{
     margin: 0;
     background-color: var(--primary_color);
 }
+
 html {
     margin: 0;
     padding: 0;
-
 }
 
 .title{
@@ -25,8 +24,7 @@ html {
 
 .div_parent{
     display: flex;
-    justify-content: flex-start;
-    margin-left: 10%;
+    justify-content: center;
     color:var(--text_color)
 }
 
@@ -37,7 +35,8 @@ html {
 }
 
 .dashboard_div_parent{
-    margin: 0 8%;
+    margin: 2%;
+    width: 30%;
     padding: 1%;
     background-color: var(--secondary_color);
 }
