@@ -9,8 +9,7 @@ def index():
     host_name = psutil.users()[0].name
     os_name = platform.system()
     os_release = platform.release()
-    uptime = psutil.boot_time()
-    uptime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(uptime))
+    uptime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(psutil.boot_time()))
     user_number = len(psutil.users())
 
     # SECTION CPU
@@ -90,4 +89,4 @@ def index():
     )
 
 if __name__ == "__main__":
-    index()
+    app.run(debug=True)
