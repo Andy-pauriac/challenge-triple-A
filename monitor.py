@@ -33,6 +33,16 @@ def index():
         ipv6 = i.raddr
         status = i.status
 
+    # SECTION PROCESSUS 
+    cores = psutil.cpu_count()
+    for p in psutil.process_iter(): p.cpu_percent()
+    time.sleep(0.1)
+
+    procs = [(p.cpu_percent()/cores, p.pid, p.name())
+            for p in psutil.process_iter() if p.pid not in (0,4)]
+    
+    procslist = sorted(procs, reverse=True)[:3]
+
     # SECTION FICHIERS
     root_directory = r"C:\Users"   # dossier de départ
     extensions = [".txt", ".py", ".pdf", ".jpg"]
@@ -68,6 +78,8 @@ def index():
         root_directory=root_directory,
         total_files=total_files,
         counts=counts,
+        procs = procs,
+        procslist = procslist
     )
 
 if __name__ == "__main__":
