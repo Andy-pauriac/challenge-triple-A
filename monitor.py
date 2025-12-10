@@ -50,11 +50,10 @@ def index():
     procslist_ram = sorted(procs_ram, reverse=True)[:3]
 
     # SECTION FICHIERS
-    root_directory = r"C:\Users"   # dossier de départ
+    root_directory = r"C:\Users"
     extensions = [".txt", ".py", ".pdf", ".jpg"]
     counts = {ext: 0 for ext in extensions}
 
-    # Parcours de tous les sous-dossiers
     for current_dir, subdirs, files in os.walk(root_directory):
         for filename in files:
             lower_name = filename.lower()
