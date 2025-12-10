@@ -1,6 +1,9 @@
 <html lang="fr">
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="2" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,18 +13,18 @@
 
 <main>
     <header class="title">
-        <h1>Dashboard Monitoring</h1>
+        <h1 class="oswald_text">Dashboard Monitoring</h1>
 
     </header>
 
     <body>
         <div class="section_title">
-            <h2>Section Système et Réseau</h2>
+            <h2 class="oswald_text">Section Système et Réseau</h2>
         </div>
         <section class="div_parent">
             <div class="dashboard_div_parent">
                 <div class="dashboard_div">
-                    <h3>Système</h3>
+                    <h3 class="oswald_text">Système</h3>
                     <p>Nom de session : {{ host_name }}</p>
                     <p>Système d'exloitation : {{ os }} {{ os_release }}</p>
                     <p>Uptime : {{ uptime }}</p>
@@ -30,7 +33,7 @@
             </div>
             <div class="dashboard_div_parent">
                 <div class="dashboard_div">
-                    <h3>Réseau</h3>
+                    <h3 class="oswald_text">Réseau</h3>
                     <p>Adresse IPV4 : {{ ipv4.ip }} </p>
                     <p>Adresse IPV6 : {{ ipv6.ip }} </p>
                     <p>Statut : {{ status }} </p>
@@ -39,12 +42,12 @@
         </section>
 
         <div class="section_title">
-            <h2>Section CPU et RAM</h2>
+            <h2 class="oswald_text">Section CPU et RAM</h2>
         </div>
         <section class="div_parent">
             <div class="dashboard_div_parent">
                 <div class="dashboard_div">
-                    <h3>CPU</h3>
+                    <h3 class="oswald_text">CPU</h3>
                     <p> CPU : {{ cpu_cores }}</p>
                     <p> Pourcentage du CPU : {{ cpu_percent }}% </p>
                     <p>Fréquence actuelle du CPU : {{ cpu_freq.current }} MHz</p>
@@ -54,7 +57,7 @@
             </div>
             <div class="dashboard_div_parent">
                 <div class="dashboard_div">
-                    <h3>Mémoire</h3>
+                    <h3 class="oswald_text">Mémoire</h3>
                     <p>RAM totale : {{ ram_total }} Go</p>
                     <p>RAM utilisé : {{ ram_used }} Go</p>
                     <p>RAM disponible : {{ ram_available }} Go</p>
@@ -64,7 +67,7 @@
         </section>
 
         <div class="section_title">
-            <h2>Processus les plus gourmands : </h2>
+            <h2 class="oswald_text">Processus les plus gourmands : </h2>
         </div>
         <section class="div_parent">
             <div class="dashboard_div_parent">
@@ -88,7 +91,7 @@
         </section>
 
         <div class="section_title">
-            <h2>Section Fichier</h2>
+            <h2 class="oswald_text">Section Fichier</h2>
         </div>
         <section class="div_parent">
             <div class="dashboard_div_parent">
@@ -118,9 +121,11 @@
                     </table>
                 </div>
             </div>
+        </section>
     </body>
-    <footer>
 
+    <footer class="title">
+        <h4>Dashboard de Axel, Dorian et Andy</h4>
     </footer>
 </main>
 

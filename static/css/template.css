@@ -5,6 +5,14 @@
     --text_color: white;
 }
 
+
+.oswald_text {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
 body{
     margin: 0;
     background-color: var(--primary_color);
