@@ -21,7 +21,7 @@ def index():
     # SECTION MEMOIRE
     ram = psutil.virtual_memory()
     ram_available = f"{ram.available / (1024 ** 3):.2f}"
-    ram_total = f"{ram.total / (1024 ** 3):.2f}"
+    ram_total = round(ram.total / (1024 ** 3),2)
     ram_used = f"{ram.used / (1024 ** 3):.2f}"
     ram_percent = ram.percent
 
@@ -35,16 +35,14 @@ def index():
 
     # SECTION PROCESSUS 
         # CPU
-    for p in psutil.process_iter(): p.cpu_percent()
-    time.sleep(0.1)
 
-    procs_cpu = [(p.cpu_percent()/cpu_cores, p.pid, p.name())
+    procs_cpu = [(round(p.cpu_percent(),2), p.pid, p.name())
             for p in psutil.process_iter() if p.pid not in (0,4)]
     
     procslist_cpu = sorted(procs_cpu, reverse=True)[:3]
     
         # RAM
-    procs_ram = [(p.memory_percent(), p.pid, p.name())
+    procs_ram = [(round(p.memory_percent(),2), p.pid, p.name())
                  
          for p in psutil.process_iter(['pid','name'])]
     procslist_ram = sorted(procs_ram, reverse=True)[:3]
@@ -53,7 +51,7 @@ def index():
     if os_name == "Windows":
         root_directory = fr"C:\Users\{host_name}\Downloads"
     else:
-        root_directory = r"/home/"
+        root_directory = r"/home/ubuntu/Bureau/challenge/challenge-triple-A"
 
     extensions = [".txt", ".py", ".pdf", ".jpg"]
     counts = {ext: 0 for ext in extensions}
@@ -92,4 +90,4 @@ def index():
     )
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    index()
