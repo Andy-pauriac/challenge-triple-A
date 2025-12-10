@@ -1,12 +1,12 @@
 from flask import Flask, render_template
-import psutil, socket, time, platform, os
+import psutil, time, platform, os
 
 app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
 def index():
     # SECTION SYSTEME
-    host_name = socket.gethostname()
+    host_name = psutil.users()[0].name
     os_name = platform.system()
     os_release = platform.release()
     uptime = psutil.boot_time()
@@ -50,7 +50,11 @@ def index():
     procslist_ram = sorted(procs_ram, reverse=True)[:3]
 
     # SECTION FICHIERS
-    root_directory = r"C:\Users"
+    if os_name == "Windows":
+        root_directory = fr"C:\Users\{host_name}\Downloads"
+    else:
+        root_directory = r"/home/"
+
     extensions = [".txt", ".py", ".pdf", ".jpg"]
     counts = {ext: 0 for ext in extensions}
 
