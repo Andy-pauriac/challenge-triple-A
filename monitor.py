@@ -16,7 +16,7 @@ def index():
     # SECTION CPU
     cpu_cores = psutil.cpu_count()
     cpu_percent = psutil.cpu_percent(interval=1)
-    cpu_freq = psutil.cpu_freq()
+    cpu_freq = psutil.cpu_freq() 
 
     # SECTION MEMOIRE
     ram = psutil.virtual_memory()
@@ -34,13 +34,20 @@ def index():
         status = i.status
 
     # SECTION PROCESSUS 
+        # CPU
     for p in psutil.process_iter(): p.cpu_percent()
     time.sleep(0.1)
 
-    procs = [(p.cpu_percent()/cpu_cores, p.pid, p.name())
+    procs_cpu = [(p.cpu_percent()/cpu_cores, p.pid, p.name())
             for p in psutil.process_iter() if p.pid not in (0,4)]
     
-    procslist = sorted(procs, reverse=True)[:3]
+    procslist_cpu = sorted(procs_cpu, reverse=True)[:3]
+    
+        # RAM
+    procs_ram = [(p.memory_percent(), p.pid, p.name())
+                 
+         for p in psutil.process_iter(['pid','name'])]
+    procslist_ram = sorted(procs_ram, reverse=True)[:3]
 
     # SECTION FICHIERS
     root_directory = r"C:\Users"   # dossier de départ
@@ -77,8 +84,8 @@ def index():
         root_directory=root_directory,
         total_files=total_files,
         counts=counts,
-        procs = procs,
-        procslist = procslist
+        procslist_cpu=procslist_cpu,
+        procslist_ram=procslist_ram,
     )
 
 if __name__ == "__main__":

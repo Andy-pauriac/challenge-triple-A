@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="2" >
+    <!-- <meta http-equiv="refresh" content="2" > -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
     <title>Dashboard</title>
@@ -78,11 +78,27 @@
                             <th>PID</th>
                             <th>% CPU</th>
                         </tr>
-                        {%for cpu,pid,name in procslist%}
+                        {%for cpu,pid,name in procslist_cpu%}
                         <tr>
                             <td>{{name}}</td>
                             <td>{{pid}}</td>
                             <td>{{cpu}}%</td>
+                        </tr>
+                        {%endfor%}
+                    </table>
+                </div>
+                <div class="dashboard_div_files">
+                    <table class="files_table" border="1" cellpadding="4">
+                        <tr>
+                            <th>Nom</th>
+                            <th>PID</th>
+                            <th>% RAM</th>
+                        </tr>
+                        {%for ram,pid,name in procslist_ram%}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{pid}}</td>
+                            <td>{{ram}}%</td>
                         </tr>
                         {%endfor%}
                     </table>
