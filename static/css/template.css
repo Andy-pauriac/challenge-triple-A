@@ -53,3 +53,16 @@ html {
     justify-content: center;
     color:var(--text_color)
 }
+
+.dashboard_div_files{
+    background-color: var(--third_color);
+    padding: 1%;
+    border: solid white 1px;
+    height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dashboard_div_files table{
+    color:var(--text_color)
+}

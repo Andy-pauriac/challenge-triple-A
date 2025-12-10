@@ -47,9 +47,9 @@
                     <h3>CPU</h3>
                     <p> CPU : {{ cpu_cores }}</p>
                     <p> Pourcentage du CPU : {{ cpu_percent }}% </p>
-                    <p>Fréquence du CPU : {{ cpu_freq.current }} MHz</p>
-                    <p>Fréquence du CPU : {{ cpu_freq.min }} MHz</p>
-                    <p>Fréquence du CPU : {{ cpu_freq.max }} MHz</p>
+                    <p>Fréquence actuelle du CPU : {{ cpu_freq.current }} MHz</p>
+                    <p>Fréquence minimale du CPU : {{ cpu_freq.min }} MHz</p>
+                    <p>Fréquence maximale du CPU : {{ cpu_freq.max }} MHz</p>
                 </div>
             </div>
             <div class="dashboard_div_parent">
@@ -63,48 +63,50 @@
             </div>
         </section>
 
+        <div class="section_title">
+            <h2>Processus les plus gourmands : </h2>
+        </div>
         <section class="div_parent">
-            <div class="dashboard_section">
-                <h2>Section Réseau</h2>
-                <p>Adresse IPV4 : {{ ipv4.ip }} </p>
-                <p>Adresse IPV6 : {{ ipv6.ip }} </p>
-                <p>Statut : {{ status }} </p>
+            <div class="dashboard_div_parent">
+                <div class="dashboard_div">
+                    <p>1 - </p>
+                    <p>2 - </p>
+                    <p>3 - </p>
+                </div>
             </div>
-            <div class="dashboard_section">
-                <h2>Processus les plus gourmands :</h2>
-                <p>1 - </p>
-                <p>2 - </p>
-                <p>3 - </p>
-            </div>
-            <div class="dashboard_section">
-                <h2>Section Fichier</h2>
-                <p>Dossier analysé : {{ root_directory }}</p>
-                <p>Nombre total de fichiers (.txt, .py, .pdf, .jpg) : {{ total_files }}</p>
-
-                <table border="1" cellpadding="4"style="color: white;"> 
-                    <!-- th td tr sont des elements pour constuire un tableau -->
-                    <tr>
-                        <th>Extension</th>
-                        <th>Nombre de fichiers</th>
-                        <th>Pourcentage</th>
-                    </tr>
-                    {% for ext, count in counts.items() %}
-                    <tr>
-                        <td>{{ ext }}</td>
-                        <td>{{ count }}</td>
-                        <td>
-                            {% if total_files > 0 %}
-                            {{ (count / total_files * 100) | round(1) }} %
-                            {% else %}
-                            0.0 %
-                            {% endif %}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </table>
-            </div>
-
         </section>
+
+        <div class="section_title">
+            <h2>Section Fichier</h2>
+        </div>
+        <section class="div_parent">
+            <div class="dashboard_div_parent">
+                <div class="dashboard_div_files">
+                    <p>Dossier analysé : {{ root_directory }}</p>
+                    <p>Nombre total de fichiers (.txt, .py, .pdf, .jpg) : {{ total_files }}</p>
+
+                    <table class="files_table" border="1" cellpadding="4"> 
+                        <tr>
+                            <th>Extension</th>
+                            <th>Nombre de fichiers</th>
+                            <th>Pourcentage</th>
+                        </tr>
+                        {% for ext, count in counts.items() %}
+                        <tr>
+                            <td>{{ ext }}</td>
+                            <td>{{ count }}</td>
+                            <td>
+                                {% if total_files > 0 %}
+                                {{ (count / total_files * 100) | round(1) }} %
+                                {% else %}
+                                0.0 %
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
     </body>
     <footer>
 

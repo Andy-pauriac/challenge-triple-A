@@ -40,7 +40,7 @@ def index():
 
     # Parcours de tous les sous-dossiers
     for current_dir, subdirs, files in os.walk(root_directory):
-        for filename in files:               # filename est une chaîne
+        for filename in files:
             lower_name = filename.lower()
             for ext in extensions:
                 if lower_name.endswith(ext):
