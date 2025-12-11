@@ -103,7 +103,7 @@ http://127.0.0.1:5000/
 
 root_directory = r"C:\Users\doria\Desktop" sur windows 
 ou 
-root_directory = r"/home/ubuntu/Bureau/challenge/challenge-triple-A"
+root_directory = r"/home/ubuntu/Bureau/challenge/challenge-triple-A" sur Ubuntu
 
 en la remplaçant par le chemin souhaité (par exemple `r"C:\Users"` ou un autre dossier).
 
