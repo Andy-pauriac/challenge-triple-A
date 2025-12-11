@@ -101,7 +101,9 @@ http://127.0.0.1:5000/
 
 - Pour changer le dossier analysé, modifier dans `monitor.py` la variable :
 
-root_directory = r"C:\Users\doria\Desktop"
+root_directory = r"C:\Users\doria\Desktop" sur windows 
+ou 
+root_directory = r"/home/ubuntu/Bureau/challenge/challenge-triple-A"
 
 en la remplaçant par le chemin souhaité (par exemple `r"C:\Users"` ou un autre dossier).
 
