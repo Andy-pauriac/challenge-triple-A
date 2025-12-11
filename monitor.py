@@ -34,8 +34,8 @@ def index():
 
     # SECTION PROCESSUS 
         # CPU
-
-    procs_cpu = [(round(p.cpu_percent(),2), p.pid, p.name())
+    num_core = psutil.cpu_count()
+    procs_cpu = [(round(p.cpu_percent() / num_core ,2), p.pid, p.name())
             for p in psutil.process_iter() if p.pid not in (0,4)]
     
     procslist_cpu = sorted(procs_cpu, reverse=True)[:3]
