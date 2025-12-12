@@ -30,6 +30,11 @@ html {
     background-color:var(--secondary_color)
 }
 
+.title img{
+    max-width: 5%;
+    max-height: 100%;
+}
+
 .div_parent{
     display: flex;
     justify-content: center;

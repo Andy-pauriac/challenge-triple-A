@@ -1,10 +1,15 @@
 from flask import Flask, render_template
 import psutil, time, platform, os
 
+logo = os.path.join('static', 'logo')
+
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = logo
 
 @app.route("/", methods=["GET"])
 def index():
+    logo = os.path.join(app.config['UPLOAD_FOLDER'], 'Logo.png')
+
     # SECTION SYSTEME
     host_name = psutil.users()[0].name
     os_name = platform.system()
@@ -86,6 +91,7 @@ def index():
         counts=counts,
         procslist_cpu=procslist_cpu,
         procslist_ram=procslist_ram,
+        logo=logo,
     )
 
 if __name__ == "__main__":
