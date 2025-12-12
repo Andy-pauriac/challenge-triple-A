@@ -40,17 +40,43 @@ def index():
     # SECTION PROCESSUS 
         # CPU
     num_core = psutil.cpu_count()
-    procs_cpu = [(round(p.cpu_percent() / num_core ,2), p.pid, p.name())
-            for p in psutil.process_iter() if p.pid not in (0,4)]
-    
-    procslist_cpu = sorted(procs_cpu, reverse=True)[:3]
-    
-        # RAM
-    procs_ram = [(round(p.memory_percent(),2), p.pid, p.name())
-                 
-         for p in psutil.process_iter(['pid','name'])]
-    procslist_ram = sorted(procs_ram, reverse=True)[:3]
+    procs_cpu = []
 
+    for p in psutil.process_iter(['pid', 'name']):
+        if p.pid in (0, 4):
+            continue
+            
+        try:
+            cpu_percent = p.cpu_percent()
+            proc_name = p.name()
+            
+            
+            procs_cpu.append((round(cpu_percent / num_core , 2), p.pid, proc_name))
+            
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            continue
+            
+    procslist_cpu = sorted(procs_cpu, reverse=True)[:3]
+
+        # RAM
+    procs_ram = []
+
+    for p in psutil.process_iter(['pid', 'name']):
+        if p.pid in (0, 4):
+            continue
+            
+        try:
+            memory_percent = p.memory_percent()
+            proc_name = p.name()
+            
+            
+            procs_cpu.append((round(memory_percent), p.pid, proc_name))
+            
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            continue
+            
+    procslist_ram = sorted(procs_ram, reverse=True)[:3]
+    
     # SECTION FICHIERS
     if os_name == "Windows":
         root_directory = fr"C:\Users\{host_name}\Downloads"
