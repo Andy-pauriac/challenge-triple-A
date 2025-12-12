@@ -70,13 +70,13 @@ def index():
             proc_name = p.name()
             
             
-            procs_cpu.append((round(memory_percent), p.pid, proc_name))
+            procs_ram.append((round(memory_percent), p.pid, proc_name))
             
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             continue
             
     procslist_ram = sorted(procs_ram, reverse=True)[:3]
-    
+
     # SECTION FICHIERS
     if os_name == "Windows":
         root_directory = fr"C:\Users\{host_name}\Downloads"

@@ -80,3 +80,45 @@ html {
     max-width: fit-content;
     color:var(--text_color);
 }
+
+@media screen and (max-width: 1024px) {
+
+    .title img{
+    max-width: 10%;
+    max-height: 100%;
+
+    }
+}
+@media screen and (max-width: 768px) {
+    .dashboard_div_parent{
+        width:auto;
+    }
+
+    .div_parent{
+        flex-direction: column;
+    }
+
+    .dashboard_div{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+    }
+
+
+}
+
+@media screen and (max-width:615px) {
+    .title img{
+    max-width: 15%;
+    max-height: 100%;
+
+    }
+}
+
+@media screen and (max-width:345px) {
+    .title img{
+    max-width: 30%;
+    max-height: 100%;
+    margin-right: 5%;
+    }
+}
