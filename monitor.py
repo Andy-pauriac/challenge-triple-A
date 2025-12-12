@@ -39,7 +39,6 @@ def index():
 
     # SECTION PROCESSUS 
         # CPU
-    num_core = psutil.cpu_count()
     procs_cpu = []
 
     for p in psutil.process_iter(['pid', 'name']):
@@ -51,7 +50,7 @@ def index():
             proc_name = p.name()
             
             
-            procs_cpu.append((round(cpu_percent / num_core , 2), p.pid, proc_name))
+            procs_cpu.append((round(cpu_percent / cpu_cores , 2), p.pid, proc_name))
             
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             continue
